@@ -31,7 +31,7 @@ export default function App() {
   const handlePay = async (type, currency,key,reference_ID,mid) => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:4000/create-session", {
+      const res = await fetch("/create-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: amount, type: type, currency: currency ,key:key,reference_ID:reference_ID, mid:mid })
@@ -59,7 +59,7 @@ export default function App() {
     const orderId = new URLSearchParams(window.location.search).get("order_id");
 
     if (orderId) {
-      fetch(`http://localhost:4000/order-status/${orderId}`)
+      fetch(`/order-status/${orderId}`)
         .then(res => res.json())
         .then(data => {
           console.log(data)

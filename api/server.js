@@ -15,7 +15,7 @@ dotenv.config();
 const app = express();
 app.use(bodyParser.json());
 // app.use(cors({ origin: "http://localhost:3000" })); // or "*" for all origins
-app.use(cors({ origin: process.env.FRONTEND })); // or "*" for all origins
+app.use(cors({ origin: 'https://juspayfronted.vercel.app' })); // or "*" for all origins
 let key;
 let mid;
 app.post("/create-session", async (req, res) => {
@@ -116,7 +116,7 @@ if (referenceId && REFERENCE_ID_TO_METADATA_KEY[referenceId]) {
       customer_phone: generateRandom()?.mobile || "9876543210",
       payment_page_client_id: process.env.JUSPAY_CLIENT_ID,
       action: "paymentPage",
-      return_url: process.env.FRONTEND,
+      return_url:'https://juspayfronted.vercel.app',
       // return_url: "http://localhost:3000",
       // // return_url: "http://localhost:4000/payment-response",
       description: "Complete your payment",
@@ -215,4 +215,4 @@ app.get("/order-status/:orderId", async (req, res) => {
     res.status(500).json({ error: "Internal server error", details: err.message });
   }
 });
-app.listen(4000, () => console.log("✅ Backend running on port 4000"));
+module.exports = app;
