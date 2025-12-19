@@ -114,7 +114,7 @@ if (referenceId && REFERENCE_ID_TO_METADATA_KEY[referenceId]) {
       customer_id: generateRandom()?.id || "testing-customer-two",
       customer_email: generateRandom()?.email || "test@mail.com",
       customer_phone: generateRandom()?.mobile || "9876543210",
-      payment_page_client_id: process.env.JUSPAY_CLIENT_ID,
+      payment_page_client_id: 'joyalukkas',
       action: "paymentPage",
       return_url:'https://juspayfronted2.vercel.app',
       // return_url: "http://localhost:3000",
