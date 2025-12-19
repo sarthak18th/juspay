@@ -14,7 +14,8 @@ import cors from "cors";
 dotenv.config();
 const app = express();
 app.use(bodyParser.json());
-app.use(cors({ origin: "http://localhost:3000" })); // or "*" for all origins
+// app.use(cors({ origin: "http://localhost:3000" })); // or "*" for all origins
+app.use(cors({ origin: "https://juspaydemo1dep.vercel.app/" })); // or "*" for all origins
 let key;
 let mid;
 app.post("/create-session", async (req, res) => {
@@ -115,8 +116,9 @@ if (referenceId && REFERENCE_ID_TO_METADATA_KEY[referenceId]) {
       customer_phone: generateRandom()?.mobile || "9876543210",
       payment_page_client_id: process.env.JUSPAY_CLIENT_ID,
       action: "paymentPage",
-      return_url: "http://localhost:3000",
-      // return_url: "http://localhost:4000/payment-response",
+      return_url: "https://juspaydemo1dep.vercel.app/",
+      // return_url: "http://localhost:3000",
+      // // return_url: "http://localhost:4000/payment-response",
       description: "Complete your payment",
       first_name: generateRandom()?.first || "John",
       last_name: generateRandom()?.last || "Wick",
